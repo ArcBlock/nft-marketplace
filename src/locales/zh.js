@@ -7,10 +7,10 @@ module.exports = flatten({
   keywords: 'blockchain, platform, cloud, developer, arcblock',
 
   menu: {
-    offers: '浏览',
-    sell: '出售',
+    offers: '浏览 NFT',
+    sell: '出售 NFT',
     faq: '常见问题',
-    profile: '我的',
+    orders: '我的订单',
     login: '登录',
     logout: '退出',
   },

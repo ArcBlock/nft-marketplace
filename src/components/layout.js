@@ -164,6 +164,10 @@ export default function Layout({ children, location, pageContext }) {
         href: '/offers',
       },
       {
+        text: t('menu.sell'),
+        href: '/offers/create',
+      },
+      {
         text: t('menu.faq'),
         href: '/faq',
       },
@@ -175,12 +179,16 @@ export default function Layout({ children, location, pageContext }) {
         href: '/offers',
       },
       {
+        text: t('menu.sell'),
+        href: '/offers/create',
+      },
+      {
         text: t('menu.faq'),
         href: '/faq',
       },
       {
-        text: t('menu.profile'),
-        href: '/profile',
+        text: t('menu.orders'),
+        href: '/orders',
       },
     ];
   }
