@@ -41,7 +41,6 @@ class LoginButton extends React.Component {
       btnSize,
       btnColor,
       btnVariant,
-      userLabel,
       className,
       session,
       ...rest
@@ -84,7 +83,6 @@ class LoginButton extends React.Component {
                   src={user.avatar}
                   alt={user.name}
                 />
-                <Typography className="user-label">{userLabel}</Typography>
                 <Typography className="user-name">{user.name}</Typography>
                 <Button
                   className="user-logout"
@@ -109,7 +107,6 @@ LoginButton.propTypes = {
   className: PropTypes.string,
   signInText: PropTypes.string,
   signOutText: PropTypes.string,
-  userLabel: PropTypes.string,
   btnSize: PropTypes.string,
   btnColor: PropTypes.string,
   btnVariant: PropTypes.string,
@@ -120,7 +117,6 @@ LoginButton.defaultProps = {
   className: '',
   signInText: 'Sign In',
   signOutText: 'Sign Out',
-  userLabel: 'Devcon2020 User',
   btnSize: 'medium',
   btnColor: 'default',
   btnVariant: 'outlined',
