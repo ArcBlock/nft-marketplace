@@ -1,0 +1,132 @@
+{
+  "name": "nft-marketplace",
+  "title": "NFT Marketplace",
+  "description": "The marketplace to sell and buy valuable blockchain NFTs",
+  "version": "0.1.0",
+  "files": [
+    "blocklet.js",
+    "api",
+    "build",
+    "logo.png",
+    "screenshots",
+    "blocklet.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "_blocklet/"
+  },
+  "scripts": {
+    "lint": "eslint api src",
+    "clean": "rm -rf public api/dist",
+    "serve": "gatsby serve",
+    "build:gatsby": "gatsby build && rm -rf www && cp -rf public www",
+    "build:api": "NODE_ENV=production netlify-lambda build api/functions --config api/webpack.functions.js",
+    "build": "npm run clean && npm-run-all build:*",
+    "bundle": "yarn clean && npm-run-all bundle:*",
+    "bundle:client": "REACT_APP_API_PREFIX=\"\" REACT_APP_APP_NAME=\"NFT Marketplace\" yarn build:gatsby",
+    "bundle:server": "DEBUG=@abtnode/* NODE_ENV=production abtnode bundle -w api/webpack.blocklet.js",
+    "bundle-server": "DEBUG=@abtnode/* NODE_ENV=development abtnode bundle -w api/webpack.blocklet.js",
+    "start": "npm-run-all --parallel start:*",
+    "start:gatsby": "gatsby develop --host 0.0.0.0",
+    "start:server": "nodemon api/index.js -w api"
+  },
+  "license": "Apache-2.0",
+  "lint-staged": {
+    "*.{js,jsx,mjs,ts,tsx,css,less,scss,json,graphql}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@arcblock/did": "^1.3.3",
+    "@arcblock/did-auth": "^1.3.3",
+    "@arcblock/did-auth-storage-mongo": "^1.2.7",
+    "@arcblock/did-react": "^0.78.0",
+    "@arcblock/forge-message": "^1.3.1",
+    "@arcblock/forge-sdk": "^1.3.3",
+    "@arcblock/forge-util": "^1.2.13",
+    "@arcblock/forge-wallet": "^1.3.3",
+    "@arcblock/gatsby-theme-www": "^7.24.8",
+    "@arcblock/graphql-client": "^1.3.3",
+    "@arcblock/mcrypto": "^1.2.13",
+    "@arcblock/nft": "^1.3.3",
+    "@arcblock/nft-template": "^1.3.3",
+    "@arcblock/react-hooks": "^0.78.0",
+    "@arcblock/swap-storage-mongo": "^1.2.7",
+    "@arcblock/ux": "^0.78.0",
+    "@arcblock/www": "^7.24.8",
+    "@material-ui/core": "^4.9.7",
+    "@material-ui/icons": "4.5.1",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.4",
+    "core-js": "2.5.7",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "express-bearer-token": "^2.4.0",
+    "gatsby": "^2.22.10",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "5.4.23",
+    "morgan": "^1.9.1",
+    "multibase": "^0.6.0",
+    "nocache": "^2.1.0",
+    "nodemailer": "^6.4.8",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-content-loader": "^5.0.2",
+    "react-dom": "^16.13.0",
+    "react-helmet": "^5.2.1",
+    "react-jss": "^10.0.4",
+    "react-use": "^13.26.3",
+    "serverless-http": "^2.0.1",
+    "store": "^2.0.12",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "chai": "^4.2.0",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.18.3",
+    "husky": "^2.2.0",
+    "lint-staged": "^8.1.6",
+    "netlify-lambda": "^1.4.7",
+    "nodemon": "^1.19.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.0"
+  },
+  "blocklet": {
+    "group": "dapp",
+    "color": "primary",
+    "logo": "logo.svg",
+    "main": "api/index.js",
+    "provider": "arcblock",
+    "admin_url": "",
+    "config_url": "",
+    "public_url": "/",
+    "hooks": {
+      "pre-deploy": "npm run bundle"
+    },
+    "hookFiles": [],
+    "requiredEnvironments": [
+      {
+        "name": "MONGO_URI",
+        "description": "Please provide a valid MongoDB connection string to start",
+        "required": true,
+        "default": ""
+      }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged"
+    }
+  }
+}
