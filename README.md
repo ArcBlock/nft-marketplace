@@ -24,20 +24,22 @@ make init
 Put following content in `.env` file at your repo root
 
 ```ini
+SKIP_PREFLIGHT_CHECK=true
+
 # server only
 MONGO_URI="mongodb://127.0.0.1:27017/nft-marketplace"
 APP_TOKEN_SECRET="37915b1ae3a42a5cca96368eb75ffbda0353734a6ded1bc788"
 APP_TOKEN_TTL="1d"
-APP_SK="0xfa0b27be974b3c2cbe77e4f8dc22073668de27809b2afc19b03385344edd93b7628ee09eb0753837915b1ae3a42a5cca96368eb75ffbda0353734a6ded1bc788"
+APP_SK="0xeef0f8aa177bcf947980727389164b60411cac8a200b2d3cb6954fb2c5223dcb8b0d24b1db433b346396230d5833bbb9fac58768efde4c998de6473c9d78cfa7"
 APP_PORT="3030"
 
 # both client and server
 GATSBY_CHAIN_ID="xenon-2020-01-15"
 GATSBY_CHAIN_HOST="https://xenon.abtnetwork.io/api"
 GATSBY_APP_NAME="NFT Marketplace"
-GATSBY_APP_DESCRIPTION="DevCon2020 DApp"
-GATSBY_APP_ID="zNKt77Cbz2jn8wGv2PKXs9SLygwZ2gWEBhN5"
-GATSBY_BASE_URL="http://192.168.1.2:3030"
+GATSBY_APP_DESCRIPTION="The marketplace to sell and buy valuable blockchain NFTs"
+GATSBY_APP_ID="zNKa7xm99TypbudJoGPBgUHLUYg4GozSHhM1"
+GATSBY_BASE_URL="http://192.168.1.4:3030"
 GATSBY_API_PREFIX=""
 ```
 

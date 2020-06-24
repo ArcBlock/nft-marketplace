@@ -27,9 +27,6 @@ if (env.chainHost) {
     name: env.chainId,
     default: true,
   });
-  if (env.assetChainHost) {
-    ForgeSDK.connect(env.assetChainHost, { chainId: env.assetChainId, name: env.assetChainId });
-  }
 }
 
 const wallet = fromSecretKey(process.env.APP_SK, type);
@@ -76,8 +73,8 @@ const swapHandlers = new SwapHandlers({
   swapContext: {
     offerChainId: env.chainId,
     offerChainHost: env.chainHost,
-    demandChainId: env.assetChainId,
-    demandChainHost: env.assetChainHost,
+    demandChainId: env.chainId,
+    demandChainHost: env.chainHost,
   },
   options: {
     swapKey: 'tid',

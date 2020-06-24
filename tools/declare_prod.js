@@ -46,27 +46,21 @@ const ensureIssuer = () => {
         moniker: 'nft_marketplace',
         wallet: app,
       },
-      { conn: env.assetChainId }
+      { conn: env.chainId }
     );
     const tx2 = await ForgeSDK.finalizeDeclare(
       {
         tx: tx1,
         wallet: issuer,
       },
-      { conn: env.assetChainId }
+      { conn: env.chainId }
     );
 
     const hash = await ForgeSDK.sendDeclareTx(
       { tx: tx2, wallet: issuer },
-      { conn: env.assetChainId }
-    );
-    console.log('App declared on asset chain', hash);
-
-    const hash2 = await ForgeSDK.declare(
-      { moniker: 'nft_marketplace', wallet: app },
       { conn: env.chainId }
     );
-    console.log('App declared on main chain', hash2);
+    console.log('App declared on chain', hash);
 
     process.exit(0);
   } catch (err) {

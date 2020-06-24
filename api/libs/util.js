@@ -2,24 +2,9 @@
 /* eslint-disable object-curly-newline */
 const ForgeSDK = require('@arcblock/forge-sdk');
 const Mcrypto = require('@arcblock/mcrypto');
-const {
-  createZippedSvgDisplay,
-  createCertSvg,
-  createTicketSvg,
-} = require('@arcblock/nft-template');
-const { NFTRecipient } = require('@arcblock/nft');
 const { NFTType } = require('@arcblock/nft/lib/enum');
-const moment = require('moment');
 
 const env = require('./env');
-const {
-  createFreeTicketSvg,
-  createPremiumTicketSvg,
-  createProCert,
-  createFreeCertSvg,
-} = require('../libs/nft_templates');
-
-const { getBadge } = require('../libs/badge_templates');
 
 const getTransferrableAssets = async (userDid, assetCount, chainId) => {
   const { assets } = await ForgeSDK.listAssets(
@@ -116,84 +101,6 @@ const getAccountBalance = async userDid => {
   };
 };
 
-const ensureAsset = async (
-  factory,
-  {
-    userPk,
-    userDid,
-    type,
-    name,
-    description,
-    backgroundUrl,
-    logoUrl,
-    startTime,
-    endTime,
-    location = 'China',
-    vcType = '',
-    isPro = false,
-    sessionID,
-    certType,
-  }
-) => {
-  const methods = {
-    badge: factory.createBadge.bind(factory),
-    ticket: factory.createTicket.bind(factory),
-    certificate: factory.createCertificate.bind(factory),
-  };
-  const data = {
-    name,
-    description,
-    reason: description,
-    logoUrl,
-    location,
-    type: vcType,
-    issueTime: Date.now(),
-    startTime,
-    endTime,
-    expireTime: endTime,
-    recipient: new NFTRecipient({
-      wallet: ForgeSDK.Wallet.fromPublicKey(userPk),
-      name: userDid,
-      location: 'China, Beijing',
-    }),
-  };
-
-  let display;
-  if (vcType === 'DevCon2020FreeTicket') {
-    display = createZippedSvgDisplay(createFreeTicketSvg({ data }));
-  } else if (vcType === 'DevCon2020PaidTicket') {
-    display = createZippedSvgDisplay(createPremiumTicketSvg({ data }));
-  } else if (vcType.indexOf('DevCon2020SessionCertificate') > -1) {
-    display = createZippedSvgDisplay(
-      isPro
-        ? createProCert({
-            data,
-            issueDate: moment(data.issueTime).format('YYYY-MM-DD HH:mm:ss'),
-            userDid,
-            certType,
-          })
-        : createFreeCertSvg({
-            data,
-            userDid,
-            issueDate: moment(data.issueTime).format('YYYY-MM-DD HH:mm:ss'),
-          })
-    );
-  } else if (vcType.indexOf('DevCon2020SessionBadge') > -1) {
-    display = createZippedSvgDisplay(getBadge(isPro, data, userDid, sessionID));
-  } else {
-    display = createZippedSvgDisplay(
-      type === 'ticket' ? createTicketSvg({ data }) : createCertSvg({ data })
-    );
-  }
-
-  const [asset] = await methods[type]({
-    display,
-    backgroundUrl,
-    data,
-  });
-  return asset;
-};
-
 const getRandomMessage = (len = 16) => {
   const hex = Mcrypto.getRandomBytes(len);
   return hex.replace(/^0x/, '').toUpperCase();
@@ -251,6 +158,5 @@ module.exports = {
   getAccountBalance,
   transferVCTypeToAssetType,
   getRandomMessage,
-  ensureAsset,
   getAssetsByTargetType,
 };
