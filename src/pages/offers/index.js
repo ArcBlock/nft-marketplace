@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Container from '../../components/container';
+
 export default function OffersList() {
-  return <p>Offers List</p>;
+  return <Container>Offers List</Container>;
 }

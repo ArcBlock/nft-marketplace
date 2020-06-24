@@ -160,67 +160,27 @@ export default function Layout({ children, location, pageContext }) {
   if (session.user) {
     links = [
       {
-        text: t('menu.schedule'),
-        href: '/#schedule',
-      },
-      {
-        text: t('menu.speakers'),
-        href: '/#speakers',
-      },
-      {
-        text: t('menu.tickets'),
-        href: '/tickets',
-      },
-      // {
-      //   text: t('menu.workshop'),
-      //   href: '/workshop',
-      // },
-      {
-        text: t('menu.hackathon'),
-        href: '/hackathon',
-      },
-      {
-        text: t('menu.partners'),
-        href: '/#partners',
+        text: t('menu.offers'),
+        href: '/offers',
       },
       {
         text: t('menu.faq'),
         href: '/faq',
-      },
-      {
-        text: t('menu.myBadges'),
-        href: '/mybadges',
       },
     ];
   } else {
     links = [
       {
-        text: t('menu.schedule'),
-        href: '/#schedule',
-      },
-      {
-        text: t('menu.speakers'),
-        href: '/#speakers',
-      },
-      {
-        text: t('menu.tickets'),
-        href: '/tickets',
-      },
-      // {
-      //   text: t('menu.workshop'),
-      //   href: '/workshop',
-      // },
-      {
-        text: t('menu.hackathon'),
-        href: '/hackathon',
-      },
-      {
-        text: t('menu.partners'),
-        href: '/#partners',
+        text: t('menu.offers'),
+        href: '/offers',
       },
       {
         text: t('menu.faq'),
         href: '/faq',
+      },
+      {
+        text: t('menu.profile'),
+        href: '/profile',
       },
     ];
   }

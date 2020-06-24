@@ -7,14 +7,10 @@ module.exports = flatten({
   keywords: 'blockchain, platform, cloud, developer, arcblock',
 
   menu: {
-    speakers: '演讲者',
-    schedule: '日程',
-    partners: '合作伙伴',
-    tickets: '门票',
-    workshop: '工作室',
-    hackathon: '黑客松',
+    offers: '浏览',
+    sell: '出售',
     faq: '常见问题',
-    myBadges: '我的徽章',
+    profile: '我的',
     login: '登录',
     logout: '退出',
   },
