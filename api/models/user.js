@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, default: '' },
   mobile: { type: String, default: '' },
   avatar: { type: String, default: '' },
+  verified: { type: Boolean, default: false },
   createdAt: { type: Date },
   updatedAt: { type: Date },
 });
