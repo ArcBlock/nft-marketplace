@@ -22,6 +22,10 @@ module.exports = flatten({
     framework: 'Blocklets Framework',
   },
 
+  detail: {
+    title: 'Asset Details',
+  },
+
   create: {
     title: 'List your Asset in Marketplace',
     steps: {

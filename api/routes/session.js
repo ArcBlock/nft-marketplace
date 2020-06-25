@@ -10,7 +10,6 @@ module.exports = {
               token {
                 decimal
                 description
-                icon
                 inflationRate
                 initialSupply
                 name

@@ -9,5 +9,10 @@ module.exports = {
 
       return res.json(items.map(x => x.toJSON()));
     });
+
+    app.get('/api/offers/:id', async (req, res) => {
+      const item = await Offer.findById(req.params.id);
+      return res.json(item.toJSON());
+    });
   },
 };
