@@ -7,13 +7,33 @@ path: '/'
 layout: 'page'
 ---
 
-## NFT Marketplace {.section .section--hero .section--image-background .section--inverted}
+<style>.section { padding: 0; }</style>
 
-一场面向全球的线上开发者大会，为期 2 天、人人可参与
+## Find Your Treasure {.section .section--image-row .section--centered}
 
-2020 年 6 月 20-21 日
+Discover, buy, and sell rare and unique blockchain assets.
 
-!ActionButton[Sell NFT](/zh/offers){theme="default"}
-!ActionButton[Buy NFT](/zh/offers){theme="default"}
+!ActionButton[Sell NFT](/en/offers/create){theme="primary" variant="contained"}
+!ActionButton[Buy NFT](/en/offers){theme="secondary" variant="contained"}
 
-![](./images/landscape.jpg)
+![](./images/hero.png)
+
+## Collect {.section .section--image-row .section--reversed .section--centered columnSize="6:6"}
+
+Find pioneering blockchain projects featuring scarce digital assets.
+
+![](./images/discover.png)
+
+## Trade {.section .section--image-row .section--centered columnSize="6:6"}
+
+Use the ABT Wallet to easily list and purchase NFT items and collectibles.
+
+!ActionButton[Download ABT Wallet](https://www.abtwallet.io){theme="primary"}
+
+![](./images/trade.png)
+
+## Collect {.section .section--image-row .section--reversed .section--centered columnSize="6:6"}
+
+Grow your inventory with rare and unique digital treasures.
+
+![](./images/collect.png)

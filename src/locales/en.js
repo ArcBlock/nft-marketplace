@@ -7,8 +7,8 @@ module.exports = flatten({
   keywords: 'blockchain, platform, cloud, developer, arcblock',
 
   menu: {
-    offers: 'Explore NFT',
-    sell: 'Sell NFT',
+    offers: 'Explore',
+    sell: 'Sell',
     faq: 'FAQ',
     orders: 'Orders',
     login: 'Login',
@@ -23,7 +23,7 @@ module.exports = flatten({
   },
 
   detail: {
-    title: 'Asset Details',
+    title: 'Offer Detail',
   },
 
   create: {

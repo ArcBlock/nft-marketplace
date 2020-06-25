@@ -56,6 +56,11 @@ export default function OfferDetail({ location }) {
             </Typography>
             <Typography component="div" className="offer-description">
               {offer.value.description}
+              <br />
+              {offer.value.description}
+              <br />
+              {offer.value.description}
+              <br />
             </Typography>
             <Typography component="div" className="offer-meta">
               <Typography component="span">

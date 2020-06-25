@@ -171,6 +171,10 @@ export default function Layout({ children, location, pageContext }) {
         text: t('menu.faq'),
         href: '/faq',
       },
+      {
+        text: t('menu.orders'),
+        href: '/orders',
+      },
     ];
   } else {
     links = [
@@ -185,10 +189,6 @@ export default function Layout({ children, location, pageContext }) {
       {
         text: t('menu.faq'),
         href: '/faq',
-      },
-      {
-        text: t('menu.orders'),
-        href: '/orders',
       },
     ];
   }
