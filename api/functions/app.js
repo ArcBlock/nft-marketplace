@@ -96,6 +96,7 @@ handlers.attach(Object.assign({ app: router }, require('../routes/auth/authorize
 swapHandlers.attach(Object.assign({ app: router }, require('../routes/auth/pickup_swap')));
 require('../routes/session').init(router);
 require('../routes/orders').init(router);
+require('../routes/offers').init(router);
 
 // Check for application account
 ForgeSDK.getAccountState({ address: wallet.toAddress() })

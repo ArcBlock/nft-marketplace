@@ -32,7 +32,16 @@ module.exports = {
         }
 
         const address = toDelegateAddress(userDid, wallet.toAddress());
-        const amount = await ForgeSDK.fromTokenToUnit(0);
+
+        const myOffers = await Offer.find({
+          userDid: item.userDid,
+          status: { $in: ['selling', 'bidding'] },
+        });
+
+        const limitRule = myOffers
+          .concat([item])
+          .map(x => `itx.assets == ["${x.assetDid}"]`)
+          .join(' or ');
 
         return {
           type: 'DelegateTx',
@@ -43,9 +52,7 @@ module.exports = {
               ops: [
                 {
                   typeUrl: 'fg:t:transfer',
-                  rules: [
-                    `itx.value == ${amount.toString()} and itx.assets == ["${item.assetAddress}"]`,
-                  ],
+                  rules: [limitRule],
                 },
               ],
             },

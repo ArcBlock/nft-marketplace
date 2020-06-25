@@ -185,6 +185,15 @@ export default function CreateOffer() {
         to={`/${locale}/offers`}>
         {t('create.redirectButton')}
       </Button>
+      <Button
+        rounded
+        variant="contained"
+        color="primary"
+        size="large"
+        style={{ marginLeft: 32 }}
+        onClick={() => window.location.reload()}>
+        {t('create.listMore')}
+      </Button>
     </div>
   );
 

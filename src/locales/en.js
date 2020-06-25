@@ -48,8 +48,10 @@ module.exports = flatten({
       confirm: 'Review this operation on your ABT Wallet',
       success: 'Authorization granted',
     },
+
     congratulation: 'Congratulations! You offer is successfully listed',
     redirectButton: 'View my offer in marketplace',
+    listMore: 'List More NFT',
 
     form: {
       title: "What's your NFT?",
