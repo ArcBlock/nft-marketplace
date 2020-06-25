@@ -68,6 +68,8 @@ export default function OffersList() {
 }
 
 const Div = styled.div`
+  min-height: 84vh;
+
   .thumbs {
     display: flex;
     flex-flow: row wrap;
