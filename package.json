@@ -80,6 +80,7 @@
     "react-content-loader": "^5.0.2",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
+    "react-hook-form": "^5.7.2",
     "react-jss": "^10.0.4",
     "react-use": "^13.26.3",
     "serverless-http": "^2.0.1",

@@ -90,6 +90,9 @@ server.use((req, res, next) => {
 const router = express.Router();
 
 handlers.attach(Object.assign({ app: router }, require('../routes/auth/login')));
+handlers.attach(Object.assign({ app: router }, require('../routes/auth/select_nft')));
+handlers.attach(Object.assign({ app: router }, require('../routes/auth/prove_nft')));
+handlers.attach(Object.assign({ app: router }, require('../routes/auth/authorize_nft')));
 swapHandlers.attach(Object.assign({ app: router }, require('../routes/auth/pickup_swap')));
 require('../routes/session').init(router);
 require('../routes/orders').init(router);

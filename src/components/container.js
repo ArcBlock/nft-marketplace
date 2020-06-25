@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import Container from '@material-ui/core/Container';
 
-export default function CustomizedContainer({ children }) {
-  return <Div>{children}</Div>;
+export default function CustomizedContainer({ children, ...rest }) {
+  return <Div {...rest}>{children}</Div>;
 }
 
 const Div = styled(Container)`
