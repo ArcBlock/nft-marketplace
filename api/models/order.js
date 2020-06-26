@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
   offerId: { type: String, required: true },
+  assetDid: { type: String, required: true },
   userDid: { type: String, required: true },
   traceId: { type: String, default: '', required: false },
   operation: { type: String, enum: ['buy', 'bid'], default: 'buy' },
-  price: { type: Number, required: true, comment: 'Price from the buyer' },
+  amount: { type: Number, required: true, comment: 'Payment amount from the buyer' },
   status: {
     type: String,
-    enum: ['created', 'expired', 'buyer_paid', 'seller_paid', 'done', 'error'],
+    enum: ['created', 'expired', 'buyer_paid', 'buyer_nft', 'seller_paid', 'error'],
     default: 'created',
   },
   tokenInputHash: { type: String, default: '', comment: '买家付款记录' },

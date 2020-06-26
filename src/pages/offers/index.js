@@ -22,7 +22,7 @@ export default function OffersList() {
     return data;
   });
 
-  if (offers.loading || session.loading) {
+  if (!offers.value || offers.loading || session.loading) {
     return (
       <Container>
         <CircularProgress />

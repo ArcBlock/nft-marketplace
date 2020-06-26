@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
-import Button from '@arcblock/ux/lib/Button';
 import Alert from '@arcblock/ux/lib/Alert';
 import { LocaleContext } from '@arcblock/ux/lib/Locale/context';
 
@@ -148,6 +148,7 @@ const Div = styled.div`
 
     .form-submit {
       margin-top: 24px;
+      box-shadow: none;
     }
   }
 `;

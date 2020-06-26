@@ -18,7 +18,7 @@ Discover, buy, and sell rare and unique blockchain assets.
 
 ![](./images/hero.png)
 
-## Collect {.section .section--image-row .section--reversed .section--centered columnSize="6:6"}
+## Discover {.section .section--image-row .section--reversed .section--centered columnSize="6:6"}
 
 Find pioneering blockchain projects featuring scarce digital assets.
 

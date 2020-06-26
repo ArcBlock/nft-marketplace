@@ -26,6 +26,13 @@ module.exports = flatten({
     title: 'Offer Detail',
   },
 
+  buy: {
+    title: 'Purchase NFT',
+    scan: 'Scan QRCode to complete the purchase',
+    confirm: 'Review this operation on your ABT Wallet',
+    success: 'Purchase success',
+  },
+
   create: {
     title: 'List your Asset in Marketplace',
     steps: {

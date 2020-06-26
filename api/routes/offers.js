@@ -12,6 +12,10 @@ module.exports = {
 
     app.get('/api/offers/:id', async (req, res) => {
       const item = await Offer.findById(req.params.id);
+
+      // FIXME: check if the asset is still available
+      // TODO: add asset transaction history
+
       return res.json(item.toJSON());
     });
   },

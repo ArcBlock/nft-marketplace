@@ -12,9 +12,9 @@ import FundIcon from '@material-ui/icons/Redeem';
 import CompleteIcon from '@material-ui/icons/Done';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 import Auth from '@arcblock/did-react/lib/Auth';
-import Button from '@arcblock/ux/lib/Button';
 import { LocaleContext } from '@arcblock/ux/lib/Locale/context';
 
 import { SessionContext } from '../../libs/session';
@@ -181,6 +181,7 @@ export default function CreateOffer() {
         variant="contained"
         color="primary"
         size="large"
+        className="action-button"
         component={Link}
         to={`/${locale}/offers`}>
         {t('create.redirectButton')}
@@ -190,6 +191,7 @@ export default function CreateOffer() {
         variant="contained"
         color="primary"
         size="large"
+        className="action-button"
         style={{ marginLeft: 32 }}
         onClick={() => window.location.reload()}>
         {t('create.listMore')}
@@ -335,6 +337,10 @@ const Div = styled.div`
       .stepper-tip {
         text-align: center;
         margin-bottom: 16px;
+      }
+
+      .action-button {
+        box-shadow: none;
       }
     }
 
