@@ -26,6 +26,12 @@ module.exports = flatten({
     title: 'Offer Detail',
   },
 
+  my: {
+    title: 'My Orders & Offers',
+    offers: 'Offers',
+    orders: 'Orders',
+  },
+
   buy: {
     title: 'Purchase NFT',
     scan: 'Scan QRCode to complete the purchase',

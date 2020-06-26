@@ -10,6 +10,15 @@ module.exports = {
       return res.json(items.map(x => x.toJSON()));
     });
 
+    app.get('/api/my/offers', async (req, res) => {
+      if (!req.user) {
+        return res.json([]);
+      }
+
+      const offers = await Offer.find({ userDid: req.user.did }).sort('-updatedAt');
+      return res.json(offers.map(x => x.toJSON()));
+    });
+
     app.get('/api/offers/:id', async (req, res) => {
       const item = await Offer.findById(req.params.id);
 

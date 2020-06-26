@@ -43,6 +43,15 @@ module.exports = {
       return res.json({ order: order.toJSON() });
     });
 
+    app.get('/api/my/orders', async (req, res) => {
+      if (!req.user) {
+        return res.json([]);
+      }
+
+      const orders = await Order.find({ userDid: req.user.did }).sort('-updatedAt');
+      return res.json(orders.map(x => x.toJSON()));
+    });
+
     app.get('/api/orders', async (req, res) => {
       const tokenInfo = await getTokenInfo();
       if (req.user) {
