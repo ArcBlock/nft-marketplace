@@ -19,7 +19,7 @@ module.exports = flatten({
     source: 'GitHub',
     abtnode: 'ABT Node',
     blocklets: 'Blocklets',
-    framework: 'Blocklets Framework',
+    framework: 'Blockchain Framework',
   },
 
   detail: {
