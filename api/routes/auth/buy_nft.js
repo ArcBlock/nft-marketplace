@@ -25,14 +25,6 @@ module.exports = {
             itx: {
               to: wallet.toAddress(),
               value: (await ForgeSDK.fromTokenToUnit(order.amount)).toString(),
-              data: {
-                type: 'json',
-                value: {
-                  source: 'NFTMarketplace',
-                  type: 'TokenInput',
-                  orderId: oid,
-                },
-              },
             },
           },
           description: 'Sign the authorization to pay for the purchase order',

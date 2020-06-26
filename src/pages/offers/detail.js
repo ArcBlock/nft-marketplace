@@ -43,8 +43,6 @@ export default function OfferDetail({ location }) {
     );
   }
 
-  console.log({ session, offer });
-
   const onBuyError = console.error;
   const onBuySuccess = () => {
     setTimeout(() => {
@@ -54,25 +52,33 @@ export default function OfferDetail({ location }) {
   };
 
   const onBuyStart = async () => {
-    if (orderId) {
-      setBuyOpen(true);
-      return;
-    }
-
-    setCreating(true);
-
-    try {
-      const { data } = await api.post('/api/orders', { oid: query.oid });
-      if (data.order) {
-        setOrderId(data.order._id);
+    const onLogin = async () => {
+      if (orderId) {
         setBuyOpen(true);
-      } else {
-        window.alert('Order create error', JSON.stringify(data));
+        return;
       }
-    } catch (err) {
-      window.alert(err.message);
-    } finally {
-      setCreating(false);
+
+      setCreating(true);
+
+      try {
+        const { data } = await api.post('/api/orders', { oid: query.oid });
+        if (data.order) {
+          setOrderId(data.order._id);
+          setBuyOpen(true);
+        } else {
+          window.alert('Order create error', JSON.stringify(data));
+        }
+      } catch (err) {
+        window.alert(err.message);
+      } finally {
+        setCreating(false);
+      }
+    };
+
+    if (session.user) {
+      await onLogin();
+    } else {
+      session.login(onLogin);
     }
   };
 

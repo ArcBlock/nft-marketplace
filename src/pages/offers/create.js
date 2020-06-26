@@ -43,12 +43,6 @@ function ColorStepIcon({ icon, active, completed }) {
 
 export default function CreateOffer() {
   const { session, api } = useContext(SessionContext);
-  useEffect(() => {
-    if (session.initialized && !session.user) {
-      session.login();
-    }
-  }, [session.initialized]);
-
   const [offerId, setOfferId] = useState(null);
   const [isProofRequired, setProofRequired] = useState(false);
   const { t, locale } = useContext(LocaleContext);
@@ -60,6 +54,12 @@ export default function CreateOffer() {
     price: 0,
     operation: 'sell',
   });
+
+  useEffect(() => {
+    if (session.initialized && !session.user) {
+      session.login();
+    }
+  }, [session.initialized]);
 
   const onNext = () => {
     setActiveStep(activeStep + 1);
@@ -220,9 +220,11 @@ export default function CreateOffer() {
 
   if (!session.user) {
     return (
-      <Container style={{ textAlign: 'center' }}>
-        <CircularProgress size={48} />
-      </Container>
+      <Div>
+        <Container style={{ textAlign: 'center' }}>
+          <CircularProgress size={48} />
+        </Container>
+      </Div>
     );
   }
 
@@ -261,6 +263,8 @@ export default function CreateOffer() {
 }
 
 const Div = styled.div`
+  min-height: 84vh;
+
   .header {
     text-align: center;
     margin-bottom: 24px;
